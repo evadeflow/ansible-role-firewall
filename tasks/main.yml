@@ -8,7 +8,7 @@
   when: ansible_os_family == 'Debian'
 
 - name: Flush iptables the first time playbook runs.
-  command: iptables -F creates=/etc/init.d/firewall
+  command: /sbin/iptables -F creates=/etc/init.d/firewall
 
 - name: Copy firewall script into place.
   template: src=firewall.bash.j2 dest=/etc/firewall.bash owner=root group=root mode=0744

@@ -23,14 +23,14 @@ case "$1" in
     ;;
   stop)
     echo "Stopping firewall."
-    iptables -F
+    /sbin/iptables -F
     ;;
   restart)
     echo "Restarting firewall."
     /etc/firewall.bash
     ;;
   status)
-    echo -e "`iptables -L -n`"
+    echo -e "`/sbin/iptables -L -n`"
     ;;
   *)
     echo "Usage: /etc/init.d/firewall {start|stop|status|restart}"
